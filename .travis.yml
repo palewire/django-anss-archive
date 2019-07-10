@@ -1,5 +1,11 @@
 language: python
 
+addons:
+  postgresql: 10
+  apt:
+    packages:
+    - postgresql-10-postgis-2.3
+
 cache:
   - pip
 
@@ -10,6 +16,9 @@ python:
 install:
  - pip install pipenv
  - pipenv install --dev
+
+before_script:
+  - psql -U postgres -c "create extension postgis"
 
 script:
  - make test
