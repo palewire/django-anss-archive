@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 
 class BaseJsonView(TemplateView):
 
-    def to_json(self, content, **response_kwargs):
+    def to_json_response(self, content, **response_kwargs):
         return HttpResponse(
             content,
             content_type='application/json',
@@ -23,7 +23,7 @@ class LatestFeedView(BaseJsonView):
     def render_to_response(self, context, **response_kwargs):
         f = json.load(context.content)
         d = json.dumps(f, indent=4)
-        return self.to_json(d)
+        return self.to_json_response(d)
 
 
 class FeedListView(BaseJsonView):
@@ -33,4 +33,4 @@ class FeedListView(BaseJsonView):
 
     def render_to_response(self, context, **response_kwargs):
         object_list = serializers.serialize('json', context, indent=4)
-        return self.to_json(object_list)
+        return self.to_json_response(object_list)

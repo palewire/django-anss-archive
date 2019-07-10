@@ -19,8 +19,8 @@ class TestCommand(Command):
 
     def run(self):
         import django
-        from django.core.management import call_command
         from django.conf import settings
+        from django.core.management import call_command
         settings.configure(
             DATABASES={
                 'default': {
@@ -31,30 +31,6 @@ class TestCommand(Command):
             },
             MEDIA_ROOT="media",
             INSTALLED_APPS=("anss",),
-            LOGGING={
-                'version': 1,
-                'disable_existing_loggers': False,
-                'handlers': {
-                    'file': {
-                        'level': 'DEBUG',
-                        'class': 'logging.FileHandler',
-                        'filename': os.path.join(os.path.dirname(__file__), 'tests.log'),
-                    },
-                },
-                'formatters': {
-                    'verbose': {
-                        'format': '%(levelname)s|%(asctime)s|%(module)s|%(message)s',
-                        'datefmt': "%d/%b/%Y %H:%M:%S"
-                    }
-                },
-                'loggers': {
-                    'anss': {
-                        'handlers': ['file'],
-                        'level': 'DEBUG',
-                        'propagate': True,
-                    },
-                }
-            }
         )
         django.setup()
         call_command('test', 'anss')

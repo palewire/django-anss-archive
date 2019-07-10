@@ -27,15 +27,15 @@ Add to Django's INSTALLED_APPS.::
         "anss",
     )
 
-Run migrations to create database tables.::
+Run migrations to create database tables. ::
 
     $ python manage.py migrate
 
-Run the archive command to save all earthquakes in the latest hour greater than 1.0 magnitude.::
+Run the archive command to save all earthquakes in the latest hour greater than 1.0 magnitude. ::
 
     $ python manage.py getlatestearthquakes
 
-Start your test server and visit the admin to see the results.::
+Start your test server and visit the admin to see the results. ::
 
     $ python manage.py runserver
 
