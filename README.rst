@@ -1,7 +1,7 @@
 django-anss-archive
 ===================
 
-A Django application to archive real-time earthquakes data from the `U.S. Geological Survey's Advanced National Seismic System <https://earthquake.usgs.gov/earthquakes/feed/>`_
+A Django application to archive real-time earthquake notifications from the `U.S. Geological Survey's Advanced National Seismic System <https://earthquake.usgs.gov/earthquakes/feed/>`_
 
 
 Requirements

@@ -64,8 +64,8 @@ setup(
     name='django-anss-archive',
     version='0.0.1',
     description=(
-        "A Django application to archive real-time earthquakes "
-        "data from the USGS's Advanced National Seismic System"
+        "A Django application to archive real-time earthquake "
+        "notifications from the USGS's Advanced National Seismic System"
     ),
     long_description=read('README.rst'),
     author='Los Angeles Times Data Desk',
