@@ -7,8 +7,10 @@ verify_ssl = true
 twine = "*"
 flake8 = "*"
 coverage = "*"
+django = ">=2.2"
 
 [packages]
+requests = "*"
 
 [requires]
 python_version = "3.6"

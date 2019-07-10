@@ -1,7 +1,7 @@
-python-open-source-template
-===========================
+django-anss-archive
+===================
 
-A template for open-source Python software repositories
+A Django application to archive real-time earthquakes data from the USGS's Advanced National Seismic System
 
 Contributing
 ------------
