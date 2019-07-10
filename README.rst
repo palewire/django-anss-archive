@@ -33,7 +33,7 @@ Run migrations to create database tables. ::
 
 Run the archive command to save all earthquakes in the latest hour greater than 1.0 magnitude. ::
 
-    $ python manage.py getlatestearthquakes
+    $ python manage.py getlatestanssfeed
 
 Start your test server and visit the admin to see the results. ::
 
