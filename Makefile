@@ -2,7 +2,7 @@
 
 test:
 	flake8 ./
-	coverage run test.py
+	coverage run setup.py test
 	coverage report -m
 
 

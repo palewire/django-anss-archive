@@ -1,8 +1,7 @@
 import json
+from anss.models import Feed
 from django.core import serializers
-from django.shortcuts import render
 from django.http import HttpResponse
-from anss.models import Feed, FeedEarthquake
 from django.views.generic import TemplateView
 
 

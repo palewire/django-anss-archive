@@ -157,7 +157,8 @@ class FeedAdmin(admin.ModelAdmin):
     list_filter = ("format", "type", "timeframe", "api", "status")
     date_hierarchy = "archived_datetime"
     fieldsets = (
-        ('The feed',
+        (
+            'The feed',
             {
                 'fields': (
                     'title',
@@ -169,7 +170,8 @@ class FeedAdmin(admin.ModelAdmin):
                 )
             }
         ),
-        ('The metadata',
+        (
+            'The metadata',
             {
                 'fields': (
                     'get_generated_datetime',
@@ -179,7 +181,8 @@ class FeedAdmin(admin.ModelAdmin):
                 )
             }
         ),
-        ('The archive',
+        (
+            'The archive',
             {
                 'fields': (
                     'archived_datetime',

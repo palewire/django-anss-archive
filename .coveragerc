@@ -1,0 +1,4 @@
+[run]
+include =
+    anss/*.py
+    anss/management/commands/*.py

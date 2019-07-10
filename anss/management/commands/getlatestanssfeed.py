@@ -48,7 +48,7 @@ class Command(BaseCommand):
         # Save the file
         f = ContentFile(r.content)
         self.feed.content.save(
-            f"usgs/{self.feed.type}/{self.feed.format}/{self.feed.timeframe}/{self.feed.archived_datetime}.json",
+            f"anss/{self.feed.type}/{self.feed.format}/{self.feed.timeframe}/{self.feed.archived_datetime}.json",
             f,
             save=True
         )
