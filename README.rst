@@ -1,7 +1,44 @@
 django-anss-archive
 ===================
 
-A Django application to archive real-time earthquakes data from the USGS's Advanced National Seismic System
+A Django application to archive real-time earthquakes data from the `US Geological Survey's Advanced National Seismic System <https://earthquake.usgs.gov/earthquakes/feed/>`_
+
+
+Requirements
+------------
+
+* The Django web framework
+* A geospatial database backend like PostGIS
+
+
+Getting started
+---------------
+
+Install the Python package.
+
+::
+
+    $ pipenv install django-anss-archive
+
+Add to Django's INSTALLED_APPS.::
+
+    INSTALLED_APPS = (
+        ...
+        "anss",
+    )
+
+Run migrations to create database tables.::
+
+    $ python manage.py migrate
+
+Run the archive command to save all earthquakes in the latest hour greater than 1.0 magnitude.::
+
+    $ python manage.py getlatestearthquakes
+
+Start your test server and visit the admin to see the results
+
+    $ python manage.py runserver
+
 
 Contributing
 ------------
