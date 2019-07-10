@@ -1,7 +1,7 @@
 django-anss-archive
 ===================
 
-A Django application to archive real-time earthquakes data from the `US Geological Survey's Advanced National Seismic System <https://earthquake.usgs.gov/earthquakes/feed/>`_
+A Django application to archive real-time earthquakes data from the `U.S. Geological Survey's Advanced National Seismic System <https://earthquake.usgs.gov/earthquakes/feed/>`_
 
 
 Requirements
@@ -35,7 +35,7 @@ Run the archive command to save all earthquakes in the latest hour greater than 
 
     $ python manage.py getlatestearthquakes
 
-Start your test server and visit the admin to see the results
+Start your test server and visit the admin to see the results.::
 
     $ python manage.py runserver
 
