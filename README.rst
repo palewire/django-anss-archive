@@ -39,8 +39,9 @@ Start your test server and visit the admin to see the results. ::
 
     $ python manage.py runserver
 
-![Earthquake list](https://raw.githubusercontent.com/datadesk/django-anss-archive/master/img/list.png)
-![Earthquake detail](https://raw.githubusercontent.com/datadesk/django-anss-archive/master/img/detail.png)
+.. image:: https://raw.githubusercontent.com/datadesk/django-anss-archive/master/img/list.png
+
+.. image:: https://raw.githubusercontent.com/datadesk/django-anss-archive/master/img/detail.png
 
 
 Contributing
