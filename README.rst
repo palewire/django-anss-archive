@@ -20,7 +20,7 @@ Install the Python package.
 
     $ pipenv install django-anss-archive
 
-Add to Django's INSTALLED_APPS.::
+Add to Django's INSTALLED_APPS. ::
 
     INSTALLED_APPS = (
         ...
@@ -39,7 +39,11 @@ Start your test server and visit the admin to see the results. ::
 
     $ python manage.py runserver
 
+It includes a list of all the earthquakes.
+
 .. image:: https://raw.githubusercontent.com/datadesk/django-anss-archive/master/img/list.png
+
+And lots of data about each one.
 
 .. image:: https://raw.githubusercontent.com/datadesk/django-anss-archive/master/img/detail.png
 

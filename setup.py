@@ -38,7 +38,7 @@ class TestCommand(Command):
 
 setup(
     name='django-anss-archive',
-    version='0.0.1',
+    version='0.0.3',
     description=(
         "A Django application to archive real-time earthquake "
         "notifications from the USGS's Advanced National Seismic System"
@@ -48,7 +48,12 @@ setup(
     author_email='datadesk@latimes.com',
     url='http://www.github.com/datadesk/django-anss-archive',
     license="MIT",
-    packages=("anss",),
+    packages=(
+        "anss",
+        "anss.migrations",
+        "anss.management",
+        "anss.management.commands",
+    ),
     cmdclass={'test': TestCommand},
     install_requires=(
         "requests",
