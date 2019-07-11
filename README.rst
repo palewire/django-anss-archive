@@ -8,7 +8,7 @@ Requirements
 ------------
 
 * The Django web framework
-* A geospatial database backend like PostGIS
+* A geospatial database like PostGIS
 
 
 Getting started
@@ -39,18 +39,21 @@ Start your test server and visit the admin to see the results. ::
 
     $ python manage.py runserver
 
+![Earthquake list](https://raw.githubusercontent.com/datadesk/django-anss-archive/master/img/list.png)
+![Earthquake detail](https://raw.githubusercontent.com/datadesk/django-anss-archive/master/img/detail.png)
+
 
 Contributing
 ------------
 
-Install dependencies for development ::
+Install dependencies for development. ::
 
     $ pipenv install --dev
 
-Run tests ::
+Run tests. ::
 
     $ make test
 
-Ship new version to PyPI ::
+Ship new version to PyPI. ::
 
     $ make ship
