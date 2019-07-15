@@ -47,10 +47,11 @@ class FeedEarthquakeAdmin(GeoModelAdmin):
     )
     list_filter = (
         "alert",
+        "net",
         "status",
         "tsunami",
         "magType",
-        "type"
+        "type",
     )
     search_fields = ("usgs_id", "title", "ids")
     fieldsets = (
