@@ -38,7 +38,7 @@ class TestCommand(Command):
 
 setup(
     name='django-anss-archive',
-    version='0.0.3',
+    version='0.0.4',
     description=(
         "A Django application to archive real-time earthquake "
         "notifications from the USGS's Advanced National Seismic System"
