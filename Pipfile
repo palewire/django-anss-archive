@@ -6,12 +6,15 @@ verify_ssl = true
 [dev-packages]
 twine = "*"
 flake8 = "*"
-coverage = "*"
-django = ">=2.2"
+django = ">=4.0.*"
 psycopg2 = "*"
+setuptools-scm = "*"
+pre-commit = "*"
+sphinx = "*"
+myst-parser = "*"
 
 [packages]
 requests = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.9"
