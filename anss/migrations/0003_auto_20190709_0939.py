@@ -6,58 +6,66 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('anss', '0002_auto_20190709_0830'),
+        ("anss", "0002_auto_20190709_0830"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='feed',
-            name='api',
-            field=models.CharField(blank=True, max_length=5000, verbose_name='API version'),
+            model_name="feed",
+            name="api",
+            field=models.CharField(
+                blank=True, max_length=5000, verbose_name="API version"
+            ),
         ),
         migrations.AlterField(
-            model_name='feed',
-            name='content',
-            field=models.FileField(upload_to='', verbose_name='archived GeoJSON'),
+            model_name="feed",
+            name="content",
+            field=models.FileField(upload_to="", verbose_name="archived GeoJSON"),
         ),
         migrations.AlterField(
-            model_name='feed',
-            name='count',
-            field=models.IntegerField(null=True, verbose_name='earthquake count'),
+            model_name="feed",
+            name="count",
+            field=models.IntegerField(null=True, verbose_name="earthquake count"),
         ),
         migrations.AlterField(
-            model_name='feed',
-            name='generated',
-            field=models.BigIntegerField(null=True, verbose_name='time generated (UNIX)'),
+            model_name="feed",
+            name="generated",
+            field=models.BigIntegerField(
+                null=True, verbose_name="time generated (UNIX)"
+            ),
         ),
         migrations.AlterField(
-            model_name='feed',
-            name='status',
-            field=models.IntegerField(null=True, verbose_name='response status'),
+            model_name="feed",
+            name="status",
+            field=models.IntegerField(null=True, verbose_name="response status"),
         ),
         migrations.AlterField(
-            model_name='feed',
-            name='url',
-            field=models.CharField(blank=True, max_length=5000, verbose_name='GeoJSON URL'),
+            model_name="feed",
+            name="url",
+            field=models.CharField(
+                blank=True, max_length=5000, verbose_name="GeoJSON URL"
+            ),
         ),
         migrations.AlterField(
-            model_name='feedearthquake',
-            name='detail',
-            field=models.CharField(blank=True, max_length=5000, verbose_name='GeoJSON'),
+            model_name="feedearthquake",
+            name="detail",
+            field=models.CharField(blank=True, max_length=5000, verbose_name="GeoJSON"),
         ),
         migrations.AlterField(
-            model_name='feedearthquake',
-            name='time',
-            field=models.BigIntegerField(null=True, verbose_name='UNIX time'),
+            model_name="feedearthquake",
+            name="time",
+            field=models.BigIntegerField(null=True, verbose_name="UNIX time"),
         ),
         migrations.AlterField(
-            model_name='feedearthquake',
-            name='url',
-            field=models.CharField(blank=True, max_length=5000, verbose_name='Summary page'),
+            model_name="feedearthquake",
+            name="url",
+            field=models.CharField(
+                blank=True, max_length=5000, verbose_name="Summary page"
+            ),
         ),
         migrations.AlterField(
-            model_name='feedearthquake',
-            name='usgs_id',
-            field=models.CharField(blank=True, max_length=5000, verbose_name='USGS ID'),
+            model_name="feedearthquake",
+            name="usgs_id",
+            field=models.CharField(blank=True, max_length=5000, verbose_name="USGS ID"),
         ),
     ]

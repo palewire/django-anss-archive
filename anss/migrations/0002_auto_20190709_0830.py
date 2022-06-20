@@ -6,12 +6,15 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('anss', '0001_initial'),
+        ("anss", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='feedearthquake',
-            options={'get_latest_by': ('-feed_id', '-time'), 'ordering': ('-feed_id', '-time')},
+            name="feedearthquake",
+            options={
+                "get_latest_by": ("-feed_id", "-time"),
+                "ordering": ("-feed_id", "-time"),
+            },
         ),
     ]

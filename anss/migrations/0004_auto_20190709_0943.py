@@ -6,16 +6,24 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('anss', '0003_auto_20190709_0939'),
+        ("anss", "0003_auto_20190709_0939"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='feed',
-            options={'get_latest_by': 'archived_datetime', 'ordering': ('-archived_datetime',), 'verbose_name': 'Archived feed'},
+            name="feed",
+            options={
+                "get_latest_by": "archived_datetime",
+                "ordering": ("-archived_datetime",),
+                "verbose_name": "Archived feed",
+            },
         ),
         migrations.AlterModelOptions(
-            name='feedearthquake',
-            options={'get_latest_by': ('-feed_id', '-time'), 'ordering': ('-feed_id', '-time'), 'verbose_name': 'Archived earthquake'},
+            name="feedearthquake",
+            options={
+                "get_latest_by": ("-feed_id", "-time"),
+                "ordering": ("-feed_id", "-time"),
+                "verbose_name": "Archived earthquake",
+            },
         ),
     ]

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.gis.admin import GeoModelAdmin
+
 from anss.models import Feed, FeedEarthquake
 
 
@@ -17,33 +18,33 @@ class FeedEarthquakeAdmin(GeoModelAdmin):
         "feed",
         "url",
         "detail",
-        'usgs_id',
-        'title',
-        'net',
-        'sources',
-        'code',
-        'ids',
-        'type',
-        'mag',
-        'magType',
-        'mmi',
-        'felt',
-        'cdi',
-        'tsunami',
-        'sig',
-        'alert',
-        'place',
-        'depth',
-        'get_time_datetime',
-        'time',
-        'tz',
-        'updated',
-        'nst',
-        'dmin',
-        'gap',
-        'rms',
-        'status',
-        'types',
+        "usgs_id",
+        "title",
+        "net",
+        "sources",
+        "code",
+        "ids",
+        "type",
+        "mag",
+        "magType",
+        "mmi",
+        "felt",
+        "cdi",
+        "tsunami",
+        "sig",
+        "alert",
+        "place",
+        "depth",
+        "get_time_datetime",
+        "time",
+        "tz",
+        "updated",
+        "nst",
+        "dmin",
+        "gap",
+        "rms",
+        "status",
+        "types",
     )
     list_filter = (
         "alert",
@@ -56,82 +57,61 @@ class FeedEarthquakeAdmin(GeoModelAdmin):
     search_fields = ("usgs_id", "title", "ids")
     fieldsets = (
         (
-            'Identifiers',
-            {
-                'fields': (
-                    'usgs_id',
-                    'title',
-                    'net',
-                    'sources',
-                    'code',
-                    'ids'
-                )
-            }
+            "Identifiers",
+            {"fields": ("usgs_id", "title", "net", "sources", "code", "ids")},
         ),
         (
-            'Where?',
+            "Where?",
             {
-                'fields': (
-                    'place',
-                    'point',
-                    'depth'
-                ),
-                'description': 'Where the event happened'
-            }
+                "fields": ("place", "point", "depth"),
+                "description": "Where the event happened",
+            },
         ),
         (
-            'When',
+            "When",
             {
-                'fields': (
-                    'get_time_datetime',
-                    'time',
-                    'tz'
-                ),
-                'description': 'When the event happened'
-            }
+                "fields": ("get_time_datetime", "time", "tz"),
+                "description": "When the event happened",
+            },
         ),
         (
-            'What?',
+            "What?",
             {
-                'fields': (
-                    'type',
-                    'mag',
-                    'magType',
-                    'mmi',
-                    'felt',
-                    'cdi',
-                    'tsunami',
-                    'sig',
-                    'alert'
+                "fields": (
+                    "type",
+                    "mag",
+                    "magType",
+                    "mmi",
+                    "felt",
+                    "cdi",
+                    "tsunami",
+                    "sig",
+                    "alert",
                 ),
-                'description': 'The size of the event'
-            }
+                "description": "The size of the event",
+            },
         ),
         (
-            'Reference',
+            "Reference",
             {
-                'fields': (
-                    'feed',
-                    'url',
-                    'detail'
-                ),
-                'description': "Where the data came from"
-            }
+                "fields": ("feed", "url", "detail"),
+                "description": "Where the data came from",
+            },
         ),
         (
-            'Review',
+            "Review",
             {
-                'fields': (
-                    'updated',
-                    'nst',
-                    'dmin',
-                    'gap',
-                    'rms',
-                    'status',
-                    'types',
+                "fields": (
+                    "updated",
+                    "nst",
+                    "dmin",
+                    "gap",
+                    "rms",
+                    "status",
+                    "types",
                 ),
-                'description': "More about how the data were calculated"
-            }
+                "description": "More about how the data were calculated",
+            },
         ),
     )
 
@@ -153,44 +133,35 @@ class FeedAdmin(admin.ModelAdmin):
         "api",
         "count",
         "status",
-        "get_lag"
+        "get_lag",
     )
     list_filter = ("format", "type", "timeframe", "api", "status")
     date_hierarchy = "archived_datetime"
     fieldsets = (
         (
-            'The feed',
-            {
-                'fields': (
-                    'title',
-                    'url',
-                    'api',
-                    'format',
-                    'type',
-                    'timeframe'
-                )
-            }
+            "The feed",
+            {"fields": ("title", "url", "api", "format", "type", "timeframe")},
         ),
         (
-            'The metadata',
+            "The metadata",
             {
-                'fields': (
-                    'get_generated_datetime',
-                    'generated',
-                    'count',
-                    'status',
+                "fields": (
+                    "get_generated_datetime",
+                    "generated",
+                    "count",
+                    "status",
                 )
-            }
+            },
         ),
         (
-            'The archive',
+            "The archive",
             {
-                'fields': (
-                    'archived_datetime',
-                    'get_lag',
-                    'content',
+                "fields": (
+                    "archived_datetime",
+                    "get_lag",
+                    "content",
                 )
-            }
+            },
         ),
     )
 

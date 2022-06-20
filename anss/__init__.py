@@ -1,5 +1,6 @@
-import pytz
 from datetime import datetime
+
+import pytz
 
 
 def parse_unix_datetime(num):
@@ -10,4 +11,4 @@ def parse_unix_datetime(num):
     return pytz.utc.localize(naive_dt)
 
 
-default_app_config = 'anss.apps.AnssConfig'
+default_app_config = "anss.apps.AnssConfig"

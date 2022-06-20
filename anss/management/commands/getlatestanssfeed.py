@@ -1,15 +1,16 @@
 # Django helpers
-from django.utils import timezone
-from django.contrib.gis.geos import Point
-from anss.models import Feed, FeedEarthquake
-from django.core.management.base import BaseCommand, CommandError
+# Logging
+import logging
 
 # Files
 import requests
+from django.contrib.gis.geos import Point
 from django.core.files.base import ContentFile
+from django.core.management.base import BaseCommand, CommandError
+from django.utils import timezone
 
-# Logging
-import logging
+from anss.models import Feed, FeedEarthquake
+
 logger = logging.getLogger(__name__)
 
 
@@ -21,7 +22,9 @@ class Command(BaseCommand):
 
     def set_options(self, *args, **options):
         self.now = timezone.now()
-        self.url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_hour.geojson"
+        self.url = (
+            "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_hour.geojson"
+        )
         self.feed = Feed.objects.create(
             archived_datetime=self.now,
             type="m1",
@@ -49,9 +52,7 @@ class Command(BaseCommand):
         # Save the file
         logger.debug("Archiving data")
         self.feed.content.save(
-            self.get_file_path(),
-            ContentFile(raw_feed.content),
-            save=True
+            self.get_file_path(), ContentFile(raw_feed.content), save=True
         )
         logger.debug(f"Archived at {self.feed.content.url}")
 
@@ -59,18 +60,18 @@ class Command(BaseCommand):
         geojson = raw_feed.json()
 
         # Save the metadata to the database
-        metadata = geojson['metadata']
+        metadata = geojson["metadata"]
         logger.debug(f"Logging metadata {metadata}")
-        self.feed.generated = metadata['generated']
-        self.feed.url = metadata['url']
-        self.feed.title = metadata['title']
-        self.feed.api = metadata['api']
-        self.feed.count = metadata['count']
-        self.feed.status = metadata['status']
+        self.feed.generated = metadata["generated"]
+        self.feed.url = metadata["url"]
+        self.feed.title = metadata["title"]
+        self.feed.api = metadata["api"]
+        self.feed.count = metadata["count"]
+        self.feed.status = metadata["status"]
         self.feed.save()
 
         # Save each earthquake
-        [self.create_feedearthquake(d) for d in geojson['features']]
+        [self.create_feedearthquake(d) for d in geojson["features"]]
 
     def safestr(self, v):
         """
@@ -102,38 +103,38 @@ class Command(BaseCommand):
         """
         Accepts a raw GeoJSON feature dictionary from the an ANSS real-time feed and creates a database record.
         """
-        p = d['properties']
+        p = d["properties"]
         obj = self.feedearthquake_model(
             feed=self.feed,
-            mag=p['mag'],
-            place=self.safestr(p['place']),
-            time=p['time'],
-            updated=p['updated'],
-            tz=p['tz'],
-            url=self.safestr(p['url']),
-            detail=self.safestr(p['detail']),
-            felt=p['felt'],
-            cdi=p['cdi'],
-            mmi=p['mmi'],
-            alert=self.safestr(p['alert']),
-            status=p['status'],
-            tsunami=p['tsunami'],
-            sig=p['sig'],
-            net=self.safestr(p['net']),
-            code=self.safestr(p['code']),
-            ids=self.safestr(p['ids']),
-            sources=self.safestr(p['sources']),
-            types=self.safestr(p['types']),
-            nst=p['nst'],
-            dmin=p['dmin'],
-            rms=p['rms'],
-            gap=p['gap'],
-            magType=self.safestr(p['magType']),
-            type=self.safestr(p['type']),
-            title=self.safestr(p['title']),
-            usgs_id=self.safestr(d['id'])
+            mag=p["mag"],
+            place=self.safestr(p["place"]),
+            time=p["time"],
+            updated=p["updated"],
+            tz=p["tz"],
+            url=self.safestr(p["url"]),
+            detail=self.safestr(p["detail"]),
+            felt=p["felt"],
+            cdi=p["cdi"],
+            mmi=p["mmi"],
+            alert=self.safestr(p["alert"]),
+            status=p["status"],
+            tsunami=p["tsunami"],
+            sig=p["sig"],
+            net=self.safestr(p["net"]),
+            code=self.safestr(p["code"]),
+            ids=self.safestr(p["ids"]),
+            sources=self.safestr(p["sources"]),
+            types=self.safestr(p["types"]),
+            nst=p["nst"],
+            dmin=p["dmin"],
+            rms=p["rms"],
+            gap=p["gap"],
+            magType=self.safestr(p["magType"]),
+            type=self.safestr(p["type"]),
+            title=self.safestr(p["title"]),
+            usgs_id=self.safestr(d["id"]),
         )
-        lng, lat, depth = d['geometry']['coordinates']
+        lng, lat, depth = d["geometry"]["coordinates"]
         obj.point = Point(lng, lat)
         obj.depth = depth
         obj.save()
