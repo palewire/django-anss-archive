@@ -73,7 +73,8 @@ setup(
         "A Django application to archive real-time earthquake "
         "notifications from the USGS's Advanced National Seismic System"
     ),
-    long_description=read("README.rst"),
+    long_description=read("README.md"),
+    long_description_content_type="text/markdown",
     author="Ben Welsh",
     author_email="b@palewi.re",
     url="https://palewi.re/docs/django-anss-archive/",
