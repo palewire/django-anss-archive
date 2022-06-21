@@ -43,14 +43,13 @@ jobs:
           POSTGRES_DB: test
         ports:
           - 5432:5432
-        # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     strategy:
       matrix:
         python: ["3.8", "3.9", "3.10"]
     steps:
       - name: Checkout the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: psycopg2 prerequisites
         run: sudo apt-get install libpq-dev postgresql-client gdal-bin libgdal-dev
@@ -58,7 +57,7 @@ jobs:
       - name: Install pipenv
         run: pipx install pipenv
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
           python-version: '3.9'
           cache: 'pipenv'
@@ -78,12 +77,12 @@ jobs:
     needs: [test-python]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install pipenv
         run: pipx install pipenv
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
           python-version: '3.9'
           cache: 'pipenv'

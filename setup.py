@@ -26,6 +26,8 @@ class TestCommand(Command):
         settings.configure(
             DATABASES={
                 "default": {
+                    "HOST": "localhost",
+                    "PORT": 5432,
                     "NAME": "test",
                     "USER": "postgres",
                     "ENGINE": "django.contrib.gis.db.backends.postgis",
