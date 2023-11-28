@@ -86,7 +86,7 @@ setup(
         "anss.management.commands",
     ),
     cmdclass={"test": TestCommand},
-    install_requires=("requests",),
+    install_requires=("requests", "pytz",),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Programming Language :: Python",

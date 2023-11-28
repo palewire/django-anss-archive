@@ -15,6 +15,7 @@ myst-parser = "*"
 
 [packages]
 requests = "*"
+pytz = "*"
 
 [requires]
 python_version = "3.11"
