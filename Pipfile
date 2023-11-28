@@ -12,6 +12,7 @@ setuptools-scm = "*"
 pre-commit = "*"
 sphinx = "*"
 myst-parser = "*"
+sphinx-palewire-theme = "*"
 
 [packages]
 requests = "*"

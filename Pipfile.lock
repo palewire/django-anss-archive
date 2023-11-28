@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1c88247bc94fc3c05ec66ebdd7110cb793defeb62e8d6674b45b40ede5e7da1f"
+            "sha256": "1bb7b7df7530689ba38033f0be25ad41106f75b6beb90199d5fbc0011d523fd6"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -738,6 +738,13 @@
             "index": "pypi",
             "markers": "python_version >= '3.9'",
             "version": "==7.2.6"
+        },
+        "sphinx-palewire-theme": {
+            "hashes": [
+                "sha256:252f95aa9c6d4feb8237fd0d30d530564c28c149660cea8b6ba3ab86e5273503"
+            ],
+            "index": "pypi",
+            "version": "==0.0.7"
         },
         "sphinxcontrib-applehelp": {
             "hashes": [
