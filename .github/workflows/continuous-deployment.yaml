@@ -56,17 +56,14 @@ jobs:
           sudo apt update
           sudo apt install libpq-dev postgresql-client gdal-bin libgdal-dev
 
-      - name: Install pipenv
-        run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
-
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python }}
-          cache: 'pipenv'
+          cache: 'pip'
 
       - id: pipenv-install
         name: Install Python dependencies
-        run: pipenv install --dev --python `which python`
+        run: pip install tomli setuptools-scm requests pytz psycopg2 django>=4.0.*
 
       - name: Test
         run: pipenv run python setup.py test
