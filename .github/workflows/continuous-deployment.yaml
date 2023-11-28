@@ -25,7 +25,7 @@ jobs:
 
       - id: install-python-dependencies
         name: Install Python dependencies
-        run: pipenv install flake8
+        run: pipenv sync --dev
 
       - id: lint
         name: Lint Python code
@@ -59,7 +59,7 @@ jobs:
 
       - uses: actions/setup-python@v4
         with:
-          python-version: {{ matrix.python }}
+          python-version: ${{ matrix.python }}
           cache: 'pipenv'
 
       - id: pipenv-install
@@ -89,7 +89,7 @@ jobs:
 
       - id: pipenv-install
         name: Install Python dependencies
-        run: pipenv install --dev --python `which python`
+        run: pipenv sync --dev
 
       - id: build
         name: Build release
@@ -100,8 +100,7 @@ jobs:
 
       - id: check
         name: Check release
-        run: |
-            pipenv run twine check dist/*
+        run: pipenv run twine check dist/*
 
       - id: save
         name: Save artifact
